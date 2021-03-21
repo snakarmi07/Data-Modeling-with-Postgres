@@ -16,13 +16,13 @@ songplay_id serial PRIMARY KEY, start_time bigint, user_id int, level varchar, s
 user_id int, first_name varchar, last_name varchar, gender varchar, level varchar
 
 3. songs - with the fields and datatypes:
-song_id, title, artist_id, year, duration
+song_id varchar, title varchar, artist_id varchar, year int, duration numeric
 
 4. artists - with the fields and datatypes:
-artist_id, name, location, latitude, longitude
+artist_id varchar, name varchar, location varchar, latitude float, longitude float
 
 5. time - with the fields and datatypes:
-start_time, hour, day, week, month, year, weekday
+start_time bigint, hour int, day int, week int, month int, year int, weekday int
 
 In order to create and run these tables we run **sql_queries.py** and **create_tables.py** in the terminal.
 
@@ -36,5 +36,5 @@ Apart from these files we have following few files:
 
 **File_4:-** **etl.py**:is a file responsible for the main ETL process.
 
-**File_5:-** **test.ipynb**: is a notebook used to display the results if our ETL process was being successful (or not).
+**File_5:-** **test.ipynb**: is a notebook used to display the results if our ETL process was run successfully or not.
 
