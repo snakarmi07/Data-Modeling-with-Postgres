@@ -16,13 +16,13 @@ artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists(artist_id varchar, 
 """)
 
 
-time_table_create = ("""CREATE TABLE IF NOT EXISTS time(start_time bigint, hour int, week int, month int, year int, weekday int);
+time_table_create = ("""CREATE TABLE IF NOT EXISTS time(start_time bigint, hour int, day int, week int, month int, year int, weekday int);
 """)
 
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs(song_id varchar, title varchar, artist_id varchar, year int, duration numeric);
 """)
 
-songplay_table_create = (""" CREATE TABLE IF NOT EXISTS songplays(songplay_id serial, start_time bigint, user_id int, level varchar, song_id varchar, artist_id varchar, session_id varchar, location varchar, user_agent varchar);
+songplay_table_create = (""" CREATE TABLE IF NOT EXISTS songplays(songplay_id serial PRIMARY KEY, start_time bigint, user_id int, level varchar, song_id varchar, artist_id varchar, session_id varchar, location varchar, user_agent varchar);
 """)
 
 # INSERT RECORDS
@@ -34,19 +34,18 @@ artist_table_insert = ("""INSERT INTO artists(artist_id, name, location, latitud
 """)
 
 
-time_table_insert = ("""INSERT INTO time(start_time, hour, week, month, year, weekday) VALUES (%s, %s, %s, %s, %s, %s);
+time_table_insert = ("""INSERT INTO time(start_time, hour,day, week, month, year, weekday) VALUES (%s, %s, %s, %s, %s, %s, %s);
 """)
 
 song_table_insert = ("""INSERT INTO songs(song_id, title, artist_id, year, duration) VALUES (%s, %s, %s, %s, %s);
 """)
 
-songplay_table_insert = (""" INSERT INTO songplays(songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+songplay_table_insert = (""" INSERT INTO songplays(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
 """)
-
 
 # FIND SONGS
 
-song_select = ("""
+song_select = (""" Select s.song_id, a.artist_id from songs as s join artists as a on a.artist_id=s.artist_id where s.title=(%s) and a.name=(%s) and s.duration=(%s);
 """)
 
 # QUERY LISTS
