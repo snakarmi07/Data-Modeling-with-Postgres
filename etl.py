@@ -3,6 +3,7 @@ import glob
 import psycopg2
 import pandas as pd
 from sql_queries import *
+import numpy as np
 
 
 def process_song_file(cur, filepath):
