@@ -25,11 +25,11 @@ start_time, hour, day, week, month, year, weekday
 
 In order to create and run these tables we run sql_queries.py and create_tables.py in the terminal.
 
-sql_queries.py: contains all the sql queries to create,drop tables, insert the data into tables and fetch the required data from the tables.
-create_tables.py: is reponsible to create the schema structure into the PostgreSQL database before each time when ETL script is run.
+File_1:- sql_queries.py: contains all the sql queries to create,drop tables, insert the data into tables and fetch the required data from the tables.
+File_2:- create_tables.py: is reponsible to create the schema structure into the PostgreSQL database before each time when ETL script is run.
 
 Apart from these files we have following few files:
-etl.ipynb:is a python notebook which is written to develop the read and process files from song_data and log_data and load them to the tables. It basically contains instructions on ETL process for each of the tables.
-etl.py:is a file responsible for the main ETL process
-test.ipynb is a notebook used to display the results if our ETL process was being successful (or not).
+File_3:- etl.ipynb:is a python notebook which is written to develop the read and process files from song_data and log_data and load them to the tables. It basically contains instructions on ETL process for each of the tables.
+File_4:- etl.py:is a file responsible for the main ETL process
+File_5:- test.ipynb is a notebook used to display the results if our ETL process was being successful (or not).
 
